@@ -1,10 +1,10 @@
+import { BadRequest } from './../errors/bad-request';
 
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs'
 import { map } from 'rxjs/operators';
-import { BadInput } from './../errors/bad-input';
 import { NotFoundError } from './../errors/not-found-error';
 import { AppError } from './../errors/app-error';
 
@@ -30,7 +30,7 @@ export class DataService {
     if (error.status === 404)
       return throwError(new NotFoundError(error));
         if (error.status === 400)
-      return throwError(new BadInput(error));
+      return throwError(new BadRequest(error));
     else return throwError(new AppError(error));
   }
 
