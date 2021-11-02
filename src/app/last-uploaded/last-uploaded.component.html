@@ -1,0 +1,14 @@
+<!-- <div *ngIf="lastUploadedImgs$"> -->
+
+<!-- <img [src]="photo.url_s" alt="photo.id">
+</div></div> -->
+<div>
+    <div *ngIf="photo" class=" margin-auto gallery">
+            <a  (click)="imgOnClick(img.url_s)" *ngFor="let img of photo" target="_blank" [href]="bigUrl">
+                <img  [src]="img.url_s" [alt]="img.title" width="600" height="400">
+            </a>
+    </div>
+    <div class="loading" *ngIf="isLoading">
+        <div class="margin-auto loader"></div>
+    </div>
+</div>
